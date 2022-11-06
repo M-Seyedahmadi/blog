@@ -9,7 +9,14 @@ require_once 'database/article.php';
 </html>
 <body>
     <?php
-        $articles = get_articles();
+    $limit = 2;
+    if (isset($_GET["page"])) {
+        $page  = $_GET["page"];
+    }
+    else{
+        $page=1;
+    };
+        $articles = get_articles($page, $limit);
         foreach ($articles as $article) {
             echo "
             <article>
