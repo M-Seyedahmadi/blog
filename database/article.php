@@ -37,3 +37,21 @@ function get_articles($page, $limit)
 
 }
 
+function get_article_by_id($id) {
+    $connection = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_PORT);
+    if($connection -> connect_errno) {
+        die("Error in database connection");
+    }
+    $query = "SELECT * FROM article WHERE id=" . $id;
+    $result = $connection -> query($query);
+    return $result->fetch_assoc();
+}
+
+function update_articles() {
+    $connection = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_PORT);
+    if($connection -> connect_errno) {
+        die("Error in database connection");
+    }
+    $query = "UPDATE articles SET WHERE id=2";
+}
+

@@ -8,6 +8,9 @@ require_once 'database/article.php';
 </head>
 </html>
 <body>
+<div>
+    <a href="admin/index.php">ورود ادمین</a>
+</div>
     <?php
     $limit = 2;
     if (isset($_GET["page"])) {
@@ -20,11 +23,12 @@ require_once 'database/article.php';
         foreach ($articles as $article) {
             echo "
             <article>
+            <a href='details.php?id={$article['id']}' >
                  <h1>
                      {$article['title']}
                  </h1>
                  <span>{$article['created-by']}</span> / <span>{$article['created-at']}</span>
-            </article> <hr>";
+           </a> </article> <hr>";
         }
     ?>
 </body>
