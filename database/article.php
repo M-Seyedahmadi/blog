@@ -47,11 +47,12 @@ function get_article_by_id($id) {
     return $result->fetch_assoc();
 }
 
-function update_articles() {
+function update_articles($id, $text) {
     $connection = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_PORT);
     if($connection -> connect_errno) {
         die("Error in database connection");
     }
-    $query = "UPDATE articles SET WHERE id=2";
+    $update = $_POST ['update'];
+    $query = "UPDATE article SET text=" . $text . " where id=" . $id;
 }
 
