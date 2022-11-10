@@ -15,9 +15,8 @@ if (isset($_POST['submit'])){
 //        $count= $result->num_rows;
 
         if ($username == 'mobina' && $password='123') {?>
-            <a href="admin/articles-list.php">لیست مطالب</a>
-            <a href="admin/article-update.php">ویرایش مطلب</a>
-            <a href="admin/article-create.php">ایجاد مطلب</a>
+            <a href="articles/articles-list.php">لیست مطالب</a>
+            <a href="articles/article-create.php">ایجاد مطلب</a>
 <?php
         } else {
             echo 'please enter username and password';

@@ -56,3 +56,11 @@ function update_articles($id, $text) {
     $query = "UPDATE article SET text=" . $text . " where id=" . $id;
 }
 
+function create_artiles($title,$text) {
+    $connection = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_PORT);
+    if($connection -> connect_errno) {
+        die("Error in database connection");
+    }
+    $query = "INSERT INTO article (title, text) VALUES title=" .$title ."text= .$text ";
+
+}

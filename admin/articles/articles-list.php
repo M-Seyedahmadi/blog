@@ -1,20 +1,36 @@
 <?php
-require_once 'database/article.php';
+require_once '../../database/article.php';
+?>
 
-
-if (isset($_GET["id"])) {
-    $id  = $_GET["id"];
+<html>
+<head>
+    <title>Document</title>
+</head>
+</html>
+<body>
+<?php
+$limit = 2;
+if (isset($_GET["page"])) {
+    $page  = $_GET["page"];
 }
-
-$article = get_article_by_id($id);
-echo "
+else{
+    $page=1;
+};
+$articles = get_articles($page, $limit);
+foreach ($articles as $article) {
+    echo "
             <article>
+            <a href='details.php?id={$article['id']}' >
                  <h1>
                      {$article['title']}
                  </h1>
-                 <p>
-                 {$article['text']}
-</p>
                  <span>{$article['created-by']}</span> / <span>{$article['created-at']}</span>
-           </article> <hr>";
+           </a>
+           <a href='/admin/articles/article-update.php?id={$article['id']}'>
+           ویرایش
+</a>
+            </article> <hr>";
+}
 ?>
+</body>
+</html>
